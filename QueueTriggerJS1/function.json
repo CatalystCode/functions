@@ -4,21 +4,10 @@
       "name": "jobDescription",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "modelqueryinput2",
-      "connection": "estrellamldata_STORAGE"
-    },
-    {
-      "type": "documentDB",
-      "name": "runResult",
-      "databaseName": "estrellaml",
-      "collectionName": "jobresults",
-      "createIfNotExists": false,
-      "connection": "estrellaml_DOCUMENTDB",
-      "direction": "out"
+      "queueName": "modelqueryinput2"
     },
     {
       "tableName": "Prediction",
-      "connection": "estrellamldata_STORAGE",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
