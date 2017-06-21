@@ -11,7 +11,7 @@ module.exports = function (context, jobDescription) {
     var rainsum = parseFloat(jobDescription.model_query.model_arguments.rainsum);
     var blobSvc = azure.createBlobService();
     var outbreak_probability = 0.0;
-    blobSvc.getBlobToText('estrellamlinput', blob_path, function (error, result, response) {
+    blobSvc.getBlobToText('models', blob_path, function (error, result, response) {
         if (!error) {
             csv.parse(result, function (err, output) {
                 for (var index = 1; index < output.length; index++) {
