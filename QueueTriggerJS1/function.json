@@ -4,7 +4,7 @@
       "name": "jobDescription",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "modelqueryinput",
+      "queueName": "modelqueryinput2",
       "connection": "estrellamldata_STORAGE"
     },
     {
@@ -14,6 +14,13 @@
       "collectionName": "jobresults",
       "createIfNotExists": false,
       "connection": "estrellaml_DOCUMENTDB",
+      "direction": "out"
+    },
+    {
+      "tableName": "Prediction",
+      "connection": "estrellamldata_STORAGE",
+      "name": "tableBinding",
+      "type": "table",
       "direction": "out"
     }
   ],
