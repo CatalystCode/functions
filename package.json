@@ -1,0 +1,26 @@
+{
+  "name": "project-estrella-functions",
+  "version": "0.0.1",
+  "description": "Processor for ml inference and store to table",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CatalystCode/project-estrella-functions.git"
+  },
+  "keywords": [
+    "estrella"
+  ],
+  "author": "sakundu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CatalystCode/project-estrella-functions/issues"
+  },
+  "dependencies": {
+    "csv":"1.1.1",
+    "azure-storage": "2.2.0"
+  },
+  "homepage": "https://github.com/CatalystCode/project-estrella-functions"
+}
