@@ -33,8 +33,8 @@ module.exports = function (context, jobDescription) {
                 }
             });
         } else {
-            context.log(error);
-            context.done();
+            context.log.error(error);
+            context.done(error);
         }
     });
 };
