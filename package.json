@@ -1,11 +1,26 @@
 {
   "name": "project-estrella-functions",
-  "author": "Sachin Kundu",
-  "version": "1.0.0",
-  "engines": {
-    "node": "4.4.x"
+  "version": "0.0.1",
+  "description": "Processor for ml inference and store to table",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/CatalystCode/project-estrella-functions.git"
+  },
+  "keywords": [
+    "estrella"
+  ],
+  "author": "sakundu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CatalystCode/project-estrella-functions/issues"
   },
   "dependencies": {
-    "azure-storage": "^1.3.0"
-  }
+    "csv":"1.1.1",
+    "azure-storage": "2.2.0"
+  },
+  "homepage": "https://github.com/CatalystCode/project-estrella-functions"
 }
