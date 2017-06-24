@@ -35,6 +35,7 @@ module.exports = function (context, jobDescription) {
                                 });
                                 context.log("done");
                                 context.done();
+                                return;
                             }
                         }
                         var errMsg = "couldn't find interval " + interval;
