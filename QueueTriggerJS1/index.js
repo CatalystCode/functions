@@ -37,6 +37,9 @@ module.exports = function (context, jobDescription) {
                                 context.done();
                             }
                         }
+                        var errMsg = "couldn't find interval " + interval;
+                        context.log.error(errMsg);
+                        context.done(errMsg);
                     }
                     else {
                         context.log.error(err);
