@@ -8,7 +8,7 @@ module.exports = function (context, jobDescription) {
         var blob_path = model_group + '/' + model_name;
         context.log("target model: " + blob_path);
 
-        var interval = parseInt(jobDescription.model_query.interval);
+        var interval = parseInt(jobDescription.model_query.model_interval);
         var meantemp = parseFloat(jobDescription.model_query.model_arguments.meantemp);
         var rainsum = parseFloat(jobDescription.model_query.model_arguments.rainsum);
         context.log("arguments: " + interval + ", " + meantemp + ", " + rainsum);    
