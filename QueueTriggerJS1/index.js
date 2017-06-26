@@ -15,13 +15,14 @@ module.exports = function (context, jobDescription) {
         context.log("arguments: " + interval + ", " + meantemp + ", " + rainsum);    
 
         var blobSvc = azure.createBlobService();
-    var tableSvc = azure.createTableService();
+        var tableSvc = azure.createTableService();
         var outbreak_probability = 0.0;
         blobSvc.getBlobToText('models', blob_path, function (error, result, response) {
             if (!error) {
-                context.log("parse csv file");
-                csv.parse(result, function (err, output) {
-                    if (!err) {
+                // Got the blob. Parse it as csv.
+                csv.parse(result, function (error, output) {
+                    if (!error) {
+                        context.log("parse csv file");
                         for (var index = 1; index < output.length; index++) {
                             var sample = output[index];
                             if (parseInt(sample[1]) === interval) {
@@ -36,23 +37,26 @@ module.exports = function (context, jobDescription) {
                                     Arguments: entGen.String(argument_string),
                                     Prediction: entGen.Double(outbreak_probability)
                                 };
-                                tableSvc.insertOrReplaceEntity('Predictiontest',task, function (error, result, response) {
+                                tableSvc.insertOrReplaceEntity('Prediction',task, function (error, result, response) {
                                     if(!error){
                                         context.log("done");
                                         context.done();
                                     } else {
                                         context.log.error(error);
+                                        context.done(error);
                                     }
-                                    var errMsg = "couldn't find interval " + interval;
-                                    context.log.error(errMsg);
-                                    context.done(errMsg);
-                                    }
-                    else {
-                        context.log.error(err);
-                        context.done(err);
-                    }
-                });
+                                });
+                            break;
+                            }
+                        }
+                        if(index == output.length){
+                            var errMsg = "couldn't find interval " + interval;
+                            context.log.error(errMsg);
+                            context.done(errMsg);
+                        }
+                    }});
             } else {
+                // Blob not found
                 context.log.error(error);
                 context.done(error);
             }
