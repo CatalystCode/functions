@@ -4,10 +4,10 @@
       "name": "jobDescription",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "modelqueryinput"
+      "queueName": "modelqueryinput-test"
     },
     {
-      "tableName": "Prediction",
+      "tableName": "Predictiontest",
       "name": "tableBinding",
       "type": "table",
       "direction": "out"
