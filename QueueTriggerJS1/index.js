@@ -30,7 +30,7 @@ module.exports = function (context, jobDescription) {
                                 outbreak_probability = eT / (1 + eT);
                                 context.log('outbreak_prob' + outbreak_probability.toString());
                                 var entGen = azure.TableUtilities.entityGenerator;
-                                var argument_string = util.format("{ rainsum: %s, meantemp: %s }", rainsum, meantemp);
+                                var argument_string = util.format("{ \"rainsum\": %s, \"meantemp\": %s }", rainsum, meantemp);
                                 var task = {
                                     PartitionKey: entGen.String(interval.toString()),
                                     RowKey: entGen.String(model_group + '_' + model_name),
